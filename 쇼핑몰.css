@@ -1,0 +1,89 @@
+*{margin:0; padding:0;} /*모든 태그에 magin과 padding을 0을 준다*/
+body{background-color:var(--background-color);}/*var(--변수명);을 설정해서 :root에 연결시킨다.*/
+a{text-decoration:none; display:block; color:grey;
+background-size:100%;} /*모든 a태그에 링크장식을 없애고 display를 block으로 설정해서 사이즈변경 가능하게 만든다
+a태그에 배경이미지를 첨부하기때문에 배경이미지의 사이즈는 원본크기가 100%로 모두 출력되게 설정해준다.*/
+a:hover{color:var(a-hover-color); opacity:0.8;} /*a링크를 마우스호버시에 글자색깔과  변경되게 만들어준다*/
+li{list-style:none;} /*모든 리스트의 스타일을 없앤다*/
+h2,h3{text-align:center;} /*h태그의 글자정렬(가로기준)을 중앙으로 설정한다*/
+:root {
+  --background-color:white;
+  --header-color:white;
+  --span-color:red;
+  --a-hover-color:black;
+} /*:root{--변수명:색깔;}를 사용해서 글자색을 변수에 담아 위에서 바꿀수있도록 설정해준다.*/
+
+#wrap,header,nav,#main_ad a,#sub_ad a,footer a{width:1085px;}
+/*전체페이지를 감싸고있는 wrap와 header, nav, #main_ad a, #sub_ad a, foot a의 너비값은 전부 1085px로 
+똑같으므로 묶어서 표현해준다.*/
+#wrap{margin:0 auto; padding-bottom:180px;
+background-color:var(--background-color);}
+/*전체를 감싸고있는 wrap에 margin:0 auto;를 주어 페이지에서 중앙정렬 시킨다.
+높이값이 180px인 fixed를 포함하고 있기때문에 가장 아래에 밀려나는 부분에 padding-bottom값을 180px만큼 주어 채워준다.*/
+
+header,header a,nav{position:fixed;} /*웹페이지에 스크롤이 생겨도 고정하고 싶은 부분임으로 
+position:fixed와 높이값을 주어 고정시킨다.*/
+
+#main_ad,.content_wrap,#sub_ad,footer{position:relative; top:180px;}
+/*fixed를 제외한 모든 부분의 초기점이 top:180px에서 시작되어야하므로
+#main_ad,.content_wrap,#sub_ad,footer에 position:relative top:180px을 준다.*/
+
+nav li,.content_title div,
+.content_title h3,.content li{float:left;}
+/*li 속성을 가진 블록들을 가로배치해야하므로 float:left를 준다.
+content_title div,.content_title h3 또한 가로배치해야되는 블록이므로 float:left를 주었다.*/
+
+#sub_ad,.content,footer{clear:both;}
+/*위 블록들 바로 다음에 오는 블록들에게 해체값 clear:both를 주었다.*/
+
+header{height:129px;
+background-color:var(--header-color);
+border-bottom:1px solid grey;
+z-index:99999;} /*z-index:99999를 주어 웹페이지에서 가장 바깥에 항상 표시되게 설정해주었다.*/
+header a{width:70px; height:70px;
+top:30px; left:50%; 
+margin-left:-35px;
+background-image:url("logo.png");} /*left:50%를 주어 가로상 중앙에 배치되게 만들고,
+배경이미지가 원형이기때문에 왼쪽에 추가된 margin값을 
+margin-left:-35px;(이미지 너비의 1/2)를 주어 제대로 중앙으로 배치해주었다.*/
+
+nav{height:50px; top:130px;
+background-color:var(--header-color);
+z-index:999;}
+nav li{padding:10px 23px;}/*위아래 10px씩 양옆23px씩*/
+
+#main_ad a{height:630px;
+background-image:url("ad/main.jpg");}
+
+.content_wrap{margin-top:50px;}
+.content_title div{width:465px; height:1px;
+background-image:url("line.jpg");}
+.content_title h3{margin:-15px 30px 0px;}/*위-15px 양옆30px 아래0px*/
+.content li{padding:15px 0px 0px 15px;}/*위 오른쪽 아래 왼쪽 순*/
+.content li:nth-child(1),
+.content li:nth-child(5),
+.content li:nth-child(9){padding-left:0px;}
+.content li span{color:var(--span-color);}
+.content a{width:260px; height:378px;}
+.content li:nth-child(1) a{background-image:url("content/1.gif");}
+.content li:nth-child(2) a{background-image:url("content/2.gif");}
+.content li:nth-child(3) a{background-image:url("content/3.gif");}
+.content li:nth-child(4) a{background-image:url("content/4.gif");}
+.content li:nth-child(5) a{background-image:url("content/5.gif");}
+.content li:nth-child(6) a{background-image:url("content/6.gif");}
+.content li:nth-child(7) a{background-image:url("content/7.gif");}
+.content li:nth-child(8) a{background-image:url("content/8.gif");}
+.content li:nth-child(9) a{background-image:url("content/9.gif");}
+.content li:nth-child(10) a{background-image:url("content/10.jpg");}
+.content li:nth-child(11) a{background-image:url("content/11.gif");}
+.content li:nth-child(12) a{background-image:url("content/12.gif");}
+
+#sub_ad{padding-top:15px;}
+#sub_ad a:nth-child(1){height:380px;
+background-image:url("ad/ad_1.jpg");}
+#sub_ad a:nth-child(2){height:100px;
+background-image:url("ad/ad_2.jpg");}
+
+
+footer{padding-top:15px;}
+footer a{height:300px; background-image:url("ad/ad_3.jpg");}
